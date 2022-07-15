@@ -1,0 +1,27 @@
+
+<section class="repo-desc" *ngIf="repoDetails?.name">
+    <div>
+        <h1>{{repoDetails.name | titlecase}} - {{repoDetails.description}}</h1>
+    </div>
+    <div>
+        <img src="{{repoDetails.owner.avatar_url}}" alt="logo">
+    </div>
+</section>
+<section>
+    <mat-nav-list *ngIf="pullRequestsList && pullRequestsList.length > 0">
+        <mat-list-item (click)="openPR(item)" *ngFor="let item of pullRequestsList">
+            <mat-icon aria-hidden="false" aria-label="Example home icon"
+                svgIcon="{{getSVGIcon(item)}}" [ngClass]="getSVGIcon(item)">{{getSVGIcon(item)}}</mat-icon>
+            <div class="list-item">
+                <div>
+                    <span class="list-item-title">{{item.title}}</span>
+                </div>
+                <div>
+                    #{{item.number}} opened by {{item.user.login}} &middot;
+                    {{getStatus(item)}}
+                </div>
+            </div>
+        </mat-list-item>
+    </mat-nav-list>
+    <mat-spinner *ngIf="loading" class="loading"></mat-spinner>
+</section>

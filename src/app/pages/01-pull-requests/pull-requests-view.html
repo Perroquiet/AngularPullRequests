@@ -1,0 +1,44 @@
+<div>
+    <button [routerLink]="['/']" mat-mini-fab color="primary" aria-label="back">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+</div>
+
+<div class="pr-d" *ngIf="prDetails?.title">
+    <div class="pr-d-title">
+        <h1>{{prDetails.title}} <span class="pr-d-number">#{{prDetails.number}}</span></h1>
+    </div>
+    <div class="flex flex-wrap">
+        <div class="pr-d-status" [ngClass]="getSVGIcon(prDetails)">
+            <mat-icon aria-hidden="false" aria-label="Example home icon"
+                svgIcon="{{getSVGIcon(prDetails)}}" class="pr-d-icon">{{getSVGIcon(prDetails)}}</mat-icon>
+            <span>{{getStatus(prDetails)}}</span>
+        </div>
+        <div class="pr-d-requestor">
+            <a href="{{prDetails.user.html_url}}" target="_blank">{{prDetails.user.login}}</a>
+            <span> wants to merge </span>
+            <span>{{prDetails.commits}} commit{{prDetails.commits > 1 ? 's': ''}}</span>
+            <span> into </span>
+            <span><strong>{{prDetails.base.label}}</strong></span>
+            <span> from </span>
+            <span><strong>{{prDetails.head.label}}</strong></span>
+        </div>
+    </div>
+    <div class="pr-d-created">
+        Created on: {{prDetails.created_at | date:'full'}}
+    </div>
+    <div class="pr-d-reviewers">
+        <h2>Reviewers</h2>
+        <div>
+            <mat-list>
+                <mat-list-item *ngFor="let reviewer of prDetails.requested_reviewers">
+                    <img matListAvatar src="{{reviewer.avatar_url}}" alt="avatar">
+                    <p matLine>
+                        <span>{{reviewer.login}}</span>
+                    </p>
+                </mat-list-item>
+            </mat-list>
+
+        </div>
+    </div>
+</div>

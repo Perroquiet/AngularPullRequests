@@ -1,0 +1,50 @@
+.pr-open {
+  background-color: #00a700;
+}
+.pr-closed {
+  background-color: #ff4242;
+}
+.pr-merged {
+  background-color: #9f009f;
+}
+
+.pr-d {
+  margin: 10px 0;
+  .pr-d-title {
+    margin-top: 20px;
+    h1 {
+      margin: 0;
+    }
+    .pr-d-number {
+      color: #6a6a6a;
+    }
+  }
+  .pr-d-status {
+    padding: 0px 15px;
+    border-radius: 20px;
+    color: #fff;
+    .pr-d-icon {
+      height: 18px;
+      margin: 10px 0 0;
+    }
+    span {
+      position: relative;
+      bottom: 2px;
+      margin: 0 1px;
+      font-size: 15px;
+    }
+  }
+  .pr-d-requestor {
+    padding: 10px;
+    font-weight: 500;
+  }
+  .pr-d-created, .pr-d-reviewers {
+    margin: 10px 0;
+  }
+
+  .pr-d-reviewers {
+    h2 {
+        margin: 20px 0 0;
+    }
+  }
+}

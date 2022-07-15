@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.page-wrapper {
+  height: 100%;
+  margin: 0 auto;
+  padding: 15px;
+}
+@media (min-width: 900px) {
+  .page-wrapper {
+    width: 900px;
+  }
+}
+
+
+.flex {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.flex.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex.justify-center {
+  justify-content: center;
+}
