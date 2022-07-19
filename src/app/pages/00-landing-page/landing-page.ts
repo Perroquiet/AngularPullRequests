@@ -61,7 +61,7 @@ export class LandingPageComponent {
     onWindowScroll() {
         let pos = (document.documentElement.scrollTop || document.body.scrollTop) + document.documentElement.offsetHeight;
         let max = document.documentElement.scrollHeight;
-        if (pos == max) {
+        if (pos >= max) {
             this.loading = true;
             setTimeout(() => {
                 this.page += 1;
